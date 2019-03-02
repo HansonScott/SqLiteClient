@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data;
 
-namespace EntityAI
+namespace SQLiteClient
 {
     public class DAC
     {
@@ -14,6 +14,11 @@ namespace EntityAI
         private SQLiteConnection mCon;
 
         private string tblTest = "testTable";
+
+        public string FileName
+        {
+            get { return mFileName; }
+        }
 
 
         public DAC (string SqlFileName)
@@ -83,6 +88,33 @@ namespace EntityAI
             {
                 mCon.Close();
             }
+        }
+
+        public DataTable GetMaster()
+        {
+            string sql = "SELECT * FROM sqlite_master";
+            DataSet ds = RunSelect(sql);
+            if (ds.Tables != null && ds.Tables.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+
+            else return null;
+        }
+
+        internal DataTable GetTables()
+        {
+            return null;
+        }
+
+        internal void GetCommands()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal DataTable Run(string sql)
+        {
+            return RunSelect(sql).Tables[0];
         }
     }
 }
