@@ -54,30 +54,34 @@
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.commandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitConWorkingPanel = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.splitConContent = new System.Windows.Forms.SplitContainer();
             this.rtbContent = new System.Windows.Forms.RichTextBox();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.dgvResults = new System.Windows.Forms.DataGridView();
+            this.splitConMain = new System.Windows.Forms.SplitContainer();
             this.tbOutput = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripRun = new System.Windows.Forms.ToolStripLabel();
-            this.dgvResults = new System.Windows.Forms.DataGridView();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitConWorkingPanel)).BeginInit();
+            this.splitConWorkingPanel.Panel1.SuspendLayout();
+            this.splitConWorkingPanel.Panel2.SuspendLayout();
+            this.splitConWorkingPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitConContent)).BeginInit();
+            this.splitConContent.Panel1.SuspendLayout();
+            this.splitConContent.Panel2.SuspendLayout();
+            this.splitConContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitConMain)).BeginInit();
+            this.splitConMain.Panel1.SuspendLayout();
+            this.splitConMain.Panel2.SuspendLayout();
+            this.splitConMain.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -279,7 +283,6 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.commandsToolStripMenuItem,
             this.indexToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.toolStripSeparator5,
@@ -288,55 +291,47 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
-            // commandsToolStripMenuItem
-            // 
-            this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
-            this.commandsToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.commandsToolStripMenuItem.Text = "Commands";
-            this.commandsToolStripMenuItem.Click += new System.EventHandler(this.commandsToolStripMenuItem_Click);
-            // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
-            // splitContainer1
+            // splitConWorkingPanel
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.splitConWorkingPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
+            this.splitConWorkingPanel.Location = new System.Drawing.Point(3, 3);
+            this.splitConWorkingPanel.Name = "splitConWorkingPanel";
             // 
-            // splitContainer1.Panel1
+            // splitConWorkingPanel.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            this.splitConWorkingPanel.Panel1.Controls.Add(this.treeView1);
             // 
-            // splitContainer1.Panel2
+            // splitConWorkingPanel.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dgvResults);
-            this.splitContainer1.Panel2.Controls.Add(this.rtbContent);
-            this.splitContainer1.Size = new System.Drawing.Size(794, 275);
-            this.splitContainer1.SplitterDistance = 264;
-            this.splitContainer1.TabIndex = 1;
+            this.splitConWorkingPanel.Panel2.Controls.Add(this.splitConContent);
+            this.splitConWorkingPanel.Size = new System.Drawing.Size(794, 275);
+            this.splitConWorkingPanel.SplitterDistance = 264;
+            this.splitConWorkingPanel.TabIndex = 1;
             // 
             // treeView1
             // 
@@ -348,36 +343,69 @@
             this.treeView1.Size = new System.Drawing.Size(258, 269);
             this.treeView1.TabIndex = 0;
             // 
+            // splitConContent
+            // 
+            this.splitConContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitConContent.Location = new System.Drawing.Point(3, 3);
+            this.splitConContent.Name = "splitConContent";
+            this.splitConContent.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitConContent.Panel1
+            // 
+            this.splitConContent.Panel1.Controls.Add(this.rtbContent);
+            // 
+            // splitConContent.Panel2
+            // 
+            this.splitConContent.Panel2.Controls.Add(this.dgvResults);
+            this.splitConContent.Size = new System.Drawing.Size(520, 269);
+            this.splitConContent.SplitterDistance = 134;
+            this.splitConContent.TabIndex = 2;
+            // 
             // rtbContent
             // 
             this.rtbContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbContent.Location = new System.Drawing.Point(-1, 3);
+            this.rtbContent.Location = new System.Drawing.Point(0, 3);
             this.rtbContent.Name = "rtbContent";
-            this.rtbContent.Size = new System.Drawing.Size(527, 136);
+            this.rtbContent.Size = new System.Drawing.Size(520, 128);
             this.rtbContent.TabIndex = 0;
             this.rtbContent.Text = "";
             // 
-            // splitContainer2
+            // dgvResults
             // 
-            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer2.Location = new System.Drawing.Point(0, 52);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResults.Location = new System.Drawing.Point(3, 3);
+            this.dgvResults.Name = "dgvResults";
+            this.dgvResults.RowHeadersVisible = false;
+            this.dgvResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvResults.Size = new System.Drawing.Size(517, 125);
+            this.dgvResults.TabIndex = 1;
             // 
-            // splitContainer2.Panel1
+            // splitConMain
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.splitContainer1);
+            this.splitConMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitConMain.Location = new System.Drawing.Point(0, 52);
+            this.splitConMain.Name = "splitConMain";
+            this.splitConMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer2.Panel2
+            // splitConMain.Panel1
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.tbOutput);
-            this.splitContainer2.Size = new System.Drawing.Size(800, 396);
-            this.splitContainer2.SplitterDistance = 281;
-            this.splitContainer2.TabIndex = 2;
+            this.splitConMain.Panel1.Controls.Add(this.splitConWorkingPanel);
+            // 
+            // splitConMain.Panel2
+            // 
+            this.splitConMain.Panel2.Controls.Add(this.tbOutput);
+            this.splitConMain.Size = new System.Drawing.Size(800, 396);
+            this.splitConMain.SplitterDistance = 281;
+            this.splitConMain.TabIndex = 2;
             // 
             // tbOutput
             // 
@@ -396,32 +424,22 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripRun});
+            this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripRun
+            // toolStripButton1
             // 
-            this.toolStripRun.Name = "toolStripRun";
-            this.toolStripRun.Size = new System.Drawing.Size(28, 22);
-            this.toolStripRun.Text = "Run";
-            this.toolStripRun.Click += new System.EventHandler(this.toolStripRun_Click);
-            // 
-            // dgvResults
-            // 
-            this.dgvResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResults.Location = new System.Drawing.Point(3, 145);
-            this.dgvResults.Name = "dgvResults";
-            this.dgvResults.RowHeadersVisible = false;
-            this.dgvResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvResults.Size = new System.Drawing.Size(520, 127);
-            this.dgvResults.TabIndex = 1;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(32, 22);
+            this.toolStripButton1.Text = "Run";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // FormMain
             // 
@@ -429,25 +447,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.splitContainer2);
+            this.Controls.Add(this.splitConMain);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SQLite Client";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
+            this.splitConWorkingPanel.Panel1.ResumeLayout(false);
+            this.splitConWorkingPanel.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitConWorkingPanel)).EndInit();
+            this.splitConWorkingPanel.ResumeLayout(false);
+            this.splitConContent.Panel1.ResumeLayout(false);
+            this.splitConContent.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitConContent)).EndInit();
+            this.splitConContent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
+            this.splitConMain.Panel1.ResumeLayout(false);
+            this.splitConMain.Panel2.ResumeLayout(false);
+            this.splitConMain.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitConMain)).EndInit();
+            this.splitConMain.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,19 +503,19 @@
         private System.Windows.Forms.ToolStripMenuItem customizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem commandsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitConWorkingPanel;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitConMain;
         private System.Windows.Forms.TextBox tbOutput;
         private System.Windows.Forms.RichTextBox rtbContent;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripLabel toolStripRun;
         private System.Windows.Forms.DataGridView dgvResults;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.SplitContainer splitConContent;
     }
 }
 

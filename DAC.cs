@@ -10,6 +10,9 @@ namespace SQLiteClient
 {
     public class DAC
     {
+
+        // for reference, the sqlite language: https://www.sqlite.org/lang.html
+
         private string mFileName;
         private SQLiteConnection mCon;
 
@@ -104,12 +107,8 @@ namespace SQLiteClient
 
         internal DataTable GetTables()
         {
-            return null;
-        }
-
-        internal void GetCommands()
-        {
-            throw new NotImplementedException();
+            string sql = "SELECT * FROM sqlite_master where Type='table'";
+            return Run(sql);
         }
 
         internal DataTable Run(string sql)

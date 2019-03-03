@@ -25,15 +25,19 @@ namespace SQLiteClient
         }
         #endregion
 
+        #region Class Members
         List<DAC> DBs = new List<DAC>();
-
         DAC currentDB;
+        #endregion
 
+        #region Constructor and Setup
         public FormMain()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Menu and Toolbar Handlers
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -42,7 +46,49 @@ namespace SQLiteClient
                 CreateNewFile(sfd.FileName);
             }
         }
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                OpenFile(ofd.FileName);
+            }
+        }
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (currentDB == null)
+            {
+                if (DBs.Count == 0)
+                {
+                    Output("No databases connected.");
+                    return;
+                }
 
+                currentDB = DBs[0];
+            }
+
+            string sql;
+            if (rtbContent.SelectedText.Length > 0)
+            {
+                sql = rtbContent.SelectedText;
+            }
+            else
+            {
+                sql = rtbContent.Text;
+            }
+
+            try
+            {
+                SetResults(currentDB.Run(sql));
+            }
+            catch (Exception ex)
+            {
+                Output(ex.Message);
+            }
+        }
+        #endregion
+
+        #region Primary Business Functions
         private void CreateNewFile(string fileName)
         {
             DAC d = new DAC(fileName);
@@ -52,16 +98,6 @@ namespace SQLiteClient
 
             ReLoadDBs();
         }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            if(ofd.ShowDialog() == DialogResult.OK)
-            {
-                OpenFile(ofd.FileName);
-            }
-        }
-
         private void OpenFile(string fileName)
         {
             DAC d = new DAC(fileName);
@@ -70,7 +106,9 @@ namespace SQLiteClient
 
             ReLoadDBs();
         }
+        #endregion
 
+        #region UI and admin functions
         private void ReLoadDBs()
         {
             treeView1.Nodes.Clear();
@@ -94,57 +132,16 @@ namespace SQLiteClient
 
             treeView1.Refresh();
         }
-
-        private void commandsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(currentDB == null)
-            {
-                if(DBs.Count == 0)
-                {
-                    Output("No databases connected.");
-                    return;
-                }
-
-                currentDB = DBs[0];
-            }
-
-            currentDB.GetCommands();
-        }
-
         private void Output(string msg)
         {
             this.tbOutput.AppendText(DateTime.Now.ToString("HH:mm:ss.fff") + ": " + msg);
             this.tbOutput.AppendText(Environment.NewLine);
         }
-
-        private void toolStripRun_Click(object sender, EventArgs e)
-        {
-            if (currentDB == null)
-            {
-                if (DBs.Count == 0)
-                {
-                    Output("No databases connected.");
-                    return;
-                }
-
-                currentDB = DBs[0];
-            }
-
-            string sql = rtbContent.Text;
-            try
-            {
-                SetResults(currentDB.Run(sql));
-            }
-            catch(Exception ex)
-            {
-                Output(ex.Message);
-            }
-        }
-
         private void SetResults(DataTable data)
         {
             dgvResults.DataSource = data;
             dgvResults.Refresh();
         }
+        #endregion
     }
 }
