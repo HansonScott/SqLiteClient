@@ -149,6 +149,36 @@ namespace SQLiteClient
             string dbName = GetDBFromNode(e.Node);
             SetCurrentBD(dbName);
         }
+        private void rtbContent_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.C:
+                        Clipboard.SetText(rtbContent.SelectedText);
+                        e.SuppressKeyPress = true;
+                        // do the action you need...
+                        break;
+                    case Keys.V:
+                        if (!Clipboard.ContainsText()) { return; }
+
+                        string s = Clipboard.GetText(TextDataFormat.Text);
+                        if (s == null || s.Length == 0) { return; }
+
+                        int pos = rtbContent.SelectionStart;
+                        rtbContent.SelectedText = s;
+
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        private void indexToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.sqlite.org/lang.html");
+        }
         #endregion
 
         #region Primary Business Functions
@@ -283,8 +313,8 @@ namespace SQLiteClient
             dgvResults.DataSource = data;
             dgvResults.Refresh();
         }
-        #endregion
 
+        #endregion
 
     }
 }
