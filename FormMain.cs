@@ -49,7 +49,8 @@ namespace SQLiteClient
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            if(sfd.ShowDialog() == DialogResult.OK)
+            sfd.Filter = "SQLite files (*.DB)|*.DB";
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
                 CreateNewFile(sfd.FileName);
             }
@@ -57,11 +58,17 @@ namespace SQLiteClient
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            if(ofd.ShowDialog() == DialogResult.OK)
+            ofd.Filter = "SQLite files (*.DB)|*.DB";
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 OpenFile(ofd.FileName);
             }
         }
+        /// <summary>
+        /// Run Button is pressed:
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             // check for an open database
@@ -91,6 +98,7 @@ namespace SQLiteClient
             try
             {
                 SetResults(currentDB.Run(sql));
+                ReLoadDBs();
             }
             catch (Exception ex)
             {
@@ -149,6 +157,11 @@ namespace SQLiteClient
             string dbName = GetDBFromNode(e.Node);
             SetCurrentBD(dbName);
         }
+        /// <summary>
+        /// enable copy/paste by keys pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rtbContent_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Control)
